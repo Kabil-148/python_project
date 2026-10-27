@@ -1,0 +1,12 @@
+[Unit]
+Description=Hello Flask app
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/opt/hello-flask
+ExecStart=/opt/hello-flask/venv/bin/gunicorn -b 0.0.0.0:5000 app:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
